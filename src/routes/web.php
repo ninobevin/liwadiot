@@ -27,6 +27,20 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/report', 'ReportController@index')->name('report');
+
+Route::prefix('/iot')->group(function () {
+    Route::get('getToken', 'Thingsboard\\IotController@getToken');
+    Route::get('authToken', 'Thingsboard\\IotController@authToken');
+    Route::get('removeToken', 'Thingsboard\\IotController@removeToken');
+    Route::get('getDevices', 'Thingsboard\\IotController@getDevices');
+    Route::get('getAttrib', 'Thingsboard\\IotController@getAttrib');
+    Route::get('getTelemetry', 'Thingsboard\\IotController@getTelemetry');
+});
+
+
+
 Route::get('invoice', function(){
     return view('invoice');
 });

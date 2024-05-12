@@ -27,4 +27,7 @@ mix.js('resources/js/app.js', 'public/js')
           new VuetifyLoaderPlugin()
         ]
       })
-    mix.browserSync('127.0.0.1:8000');
+    mix.browserSync({
+  proxy: '127.0.0.1:8000',
+  open: false  // Set this to false to disable automatic opening of the browser
+});
